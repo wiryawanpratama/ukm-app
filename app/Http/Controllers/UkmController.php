@@ -23,20 +23,26 @@ class UkmController extends Controller
 
     // Simpan UKM baru
     public function store(Request $request)
-    {
-        $request->validate([
-            'nama_ukm' => 'required|string|max:255',
-            'deskripsi' => 'nullable|string',
-        ]);
+{
+    $request->validate([
+        'nama_ukm' => 'required|string|max:255',
+        'bidang' => 'required|string|max:255',
+        'ketua_ukm' => 'required|string|max:255',
+        'deskripsi' => 'nullable|string',
+    ]);
 
-        Ukm::create([
-            'nama_ukm' => $request->nama_ukm,
-            'deskripsi' => $request->deskripsi,
-            'user_id' => Auth::id(), // ambil user login
-        ]);
+    Ukm::create([
+        'nama_ukm' => $request->nama_ukm,
+        'bidang' => $request->bidang,
+        'ketua_ukm' => $request->ketua_ukm,
+        'deskripsi' => $request->deskripsi,
+        'user_id' => Auth::id(),
+    ]);
 
-        return redirect()->route('ukm.index')->with('success', 'UKM berhasil ditambahkan!');
-    }
+    return redirect()->route('ukm.index')->with('success', 'UKM berhasil ditambahkan!');
+}
+
+
 
     // Detail UKM
     public function show(string $id)

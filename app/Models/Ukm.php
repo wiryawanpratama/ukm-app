@@ -14,6 +14,8 @@ class Ukm extends Model
     protected $fillable = [
         'nama_ukm',
         'deskripsi',
+        'bidang',
+        'ketua_ukm',
         'user_id', // foreign key ke user (admin pembuat UKM)
     ];
 

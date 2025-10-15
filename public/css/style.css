@@ -1,0 +1,193 @@
+/* ==============================
+   🌟 Global Style
+============================== */
+body {
+    background-color: #f8f9fa;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #212529;
+}
+
+/* ==============================
+   🌟 Sidebar Styling
+============================== */
+.d-flex > .flex-shrink-0 {
+    width: 230px;
+    background-color: #212529;
+    color: #fff;
+    min-height: 100vh;
+    transition: all 0.3s ease;
+}
+
+.d-flex > .flex-shrink-0 a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.d-flex > .flex-shrink-0 a:hover {
+    color: #0d6efd;
+}
+
+/* Brand */
+.d-flex > .flex-shrink-0 .fs-5 {
+    letter-spacing: 0.5px;
+}
+
+/* Nav links */
+.nav-pills .nav-link {
+    color: #ccc;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.nav-pills .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #0d6efd !important;
+    color: #fff !important;
+    font-weight: 600;
+}
+
+/* Icon spacing */
+.nav-pills .nav-link i {
+    font-size: 1rem;
+}
+
+/* ==============================
+   🌟 Main Content Area
+============================== */
+.flex-grow-1 {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+/* Container content padding */
+.container {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+}
+
+/* ==============================
+   🌟 Card & Table
+============================== */
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-body {
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.table {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table th {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    font-weight: 600;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* ==============================
+   🌟 Buttons
+============================== */
+.btn {
+    border-radius: 6px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+/* ==============================
+   🌟 Footer
+============================== */
+footer.footer {
+    border-top: 1px solid #444;
+    background-color: #212529 !important;
+}
+
+/* ==============================
+   🌟 Responsive Sidebar (Mobile)
+============================== */
+@media (max-width: 991px) {
+    .d-flex > .flex-shrink-0 {
+        position: fixed;
+        top: 0;
+        left: -230px;
+        z-index: 1050;
+    }
+
+    .d-flex.sidebar-open > .flex-shrink-0 {
+        left: 0;
+    }
+
+    .flex-grow-1 {
+        margin-left: 0 !important;
+    }
+
+    .sidebar-toggle-btn {
+        display: inline-block;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        background: #0d6efd;
+        border: none;
+        color: #fff;
+        padding: 8px 10px;
+        border-radius: 4px;
+        z-index: 1100;
+    }
+}
+
+/* ==============================
+   🌟 Hover Foto Tooltip (Optional)
+============================== */
+.foto-popup {
+    display: none;
+    position: absolute;
+    top: -10px;
+    left: 110%;
+    background: #fff;
+    padding: 6px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+
+.foto-popup img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.hover-nama:hover + .foto-popup {
+    display: block;
+}
+
+.container {
+    padding-bottom: 2rem;
+}
+footer.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

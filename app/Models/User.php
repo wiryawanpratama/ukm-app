@@ -12,24 +12,24 @@ class User extends Authenticatable
 
     protected $table = 'users';
 
-    protected $fillable = [
-        'name',
-        'email',
-        'password'
-    ];
+    protected $fillable = ['name', 'email', 'password'];
 
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    protected $hidden = ['password', 'remember_token'];
 
-    // Relasi: satu user bisa punya banyak UKM
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed', // otomatis hash password
+        ];
+    }
+
+    // Relasi
     public function ukm()
     {
         return $this->hasMany(Ukm::class);
     }
 
-    // Relasi: jika user adalah anggota UKM
     public function anggotaUkm()
     {
         return $this->hasOne(AnggotaUkm::class);

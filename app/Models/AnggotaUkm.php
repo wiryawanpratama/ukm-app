@@ -15,19 +15,18 @@ class AnggotaUkm extends Model
         'nama',
         'nim',
         'prodi',
-        'ukm_id', // foreign key
-        'user_id', // kalau anggota login juga lewat user
+        'angkatan',
+        'jenis_kelamin',
+        'no_hp',
+        'email',
+        'alamat',
+        'foto',
+        'ukm_id',
     ];
 
     // Relasi ke UKM
     public function ukm()
     {
         return $this->belongsTo(Ukm::class);
-    }
-
-    // Relasi ke User (opsional, kalau login)
-    public function user()
-    {
-        return $this->belongsTo(User::class);
     }
 }
