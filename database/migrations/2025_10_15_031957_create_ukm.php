@@ -9,7 +9,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+        public function up(): void
 {
     Schema::create('ukm', function (Blueprint $table) {
         $table->id();
@@ -18,10 +18,12 @@ return new class extends Migration
         $table->text('deskripsi')->nullable();
         $table->string('ketua_ukm');
         $table->string('kontak')->nullable();
-        $table->string('logo')->nullable(); // untuk upload gambar/logo UKM
+        $table->string('logo')->nullable();
+        $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // 👈 tambahkan ini
         $table->timestamps();
     });
 }
+
 
     /**
      * Reverse the migrations.

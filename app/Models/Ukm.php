@@ -9,6 +9,8 @@ class Ukm extends Model
 {
     use HasFactory;
 
+    protected $table = 'ukm';
+
     protected $fillable = [
         'nama_ukm',
         'deskripsi',
