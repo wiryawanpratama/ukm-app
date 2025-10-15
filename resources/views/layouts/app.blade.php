@@ -35,32 +35,13 @@
         <div>
             <h5 class="fw-bold mb-4">Aplikasi UKM</h5>
             <ul class="nav flex-column">
-                <li class="nav-item"><a href="{{ route('dashboard') }}" class="nav-link text-white"><i class="bi bi-house me-2"></i> Dashboard</a></li>
-                <li class="nav-item"><a href="{{ route('ukm.index') }}" class="nav-link text-white"><i class="bi bi-people me-2"></i> UKM</a></li>
-                <li class="nav-item"><a href="{{ route('anggota.index') }}" class="nav-link text-white"><i class="bi bi-person me-2"></i> Anggota</a></li>
-                <li class="nav-item">
-    <a href="{{ route('info.lomba.index') }}" class="nav-link text-white">
-        <i class="bi bi-trophy me-2"></i> Info Lomba
-    </a>
-</li>
+    <li class="nav-item"><a href="{{ route('dashboard') }}" class="nav-link text-white"><i class="bi bi-house me-2"></i> Dashboard</a></li>
+    <li class="nav-item"><a href="{{ route('ukm.index') }}" class="nav-link text-white"><i class="bi bi-people me-2"></i> UKM</a></li>
+    <li class="nav-item"><a href="{{ route('anggota.index') }}" class="nav-link text-white"><i class="bi bi-person me-2"></i> Anggota</a></li>
+    <li class="nav-item"><a href="{{ route('info.lomba.index') }}" class="nav-link text-white"><i class="bi bi-trophy me-2"></i> Info Lomba</a></li>
+    <li class="nav-item"><a href="{{ route('info.ukm.index') }}" class="nav-link text-white"><i class="bi bi-megaphone me-2"></i> Info UKM</a></li>
+</ul>
 
-<li class="nav-item">
-    <a href="{{ route('info.ukm.index') }}" class="nav-link text-white">
-        <i class="bi bi-megaphone me-2"></i> Info UKM
-    </a>
-</li>
-                <li class="nav-item">
-    <a href="{{ route('info.lomba.index') }}" class="nav-link text-white">
-        <i class="bi bi-trophy me-2"></i> Info Lomba
-    </a>
-</li>
-
-<li class="nav-item">
-    <a href="{{ route('info.ukm.index') }}" class="nav-link text-white">
-        <i class="bi bi-megaphone me-2"></i> Info UKM
-    </a>
-</li>
-            </ul>
         </div>
 
         {{-- Logout di bawah --}}

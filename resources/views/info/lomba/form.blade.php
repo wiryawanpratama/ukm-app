@@ -20,8 +20,8 @@
     {{-- Form Tambah/Edit --}}
     <form method="POST"
           action="{{ isset($lomba)
-              ? route('info-lomba.update', $lomba->id)
-              : route('info-lomba.store') }}">
+              ? route('info.lomba.update', $lomba->id)
+              : route('info.lomba.store') }}">
         @csrf
         @if(isset($lomba)) @method('PUT') @endif
 

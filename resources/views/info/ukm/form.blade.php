@@ -15,13 +15,13 @@
                 @endforeach
             </ul>
         </div>
-    @endif
+    @endifgit
 
     {{-- Form Tambah/Edit --}}
     <form method="POST"
           action="{{ isset($InfoUkm)
-              ? route('info-ukm.update', $InfoUkm->id)
-              : route('info-ukm.store') }}">
+              ? route('info.ukm.update', $InfoUkm->id)
+              : route('info.ukm.store') }}">
         @csrf
         @if(isset($InfoUkm)) @method('PUT') @endif
 
