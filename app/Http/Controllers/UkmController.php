@@ -9,11 +9,24 @@ use Illuminate\Support\Facades\Auth;
 class UkmController extends Controller
 {
     // Tampilkan semua UKM
-    public function index()
-    {
-        $ukm = Ukm::with('user')->get();
-        return view('ukm.index', compact('ukm'));
-    }
+   public function index(Request $request)
+{
+    // Ambil input pencarian (jika ada)
+    $search = $request->input('search');
+
+    // Query UKM dengan filter pencarian
+    $ukm = Ukm::when($search, function ($query, $search) {
+        return $query->where('nama_ukm', 'like', "%{$search}%")
+                     ->orWhere('bidang', 'like', "%{$search}%")
+                     ->orWhere('ketua_ukm', 'like', "%{$search}%");
+    })
+    ->latest()
+    ->paginate(10);
+
+    // Kirim data ke view
+    return view('ukm.index', compact('ukm', 'search'));
+}
+
 
     // Tampilkan form tambah UKM
     public function create()

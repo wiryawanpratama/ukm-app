@@ -10,11 +10,28 @@ use Illuminate\Support\Facades\Storage;
 class AnggotaUkmController extends Controller
 {
     // 🧾 Tampilkan semua anggota UKM
-    public function index()
-    {
-        $anggota = AnggotaUkm::with('ukm')->get();
-        return view('anggota.index', compact('anggota'));
-    }
+   public function index(Request $request)
+{
+    // Ambil input pencarian dari form
+    $search = $request->input('search');
+
+    // Query anggota UKM
+    $anggota = \App\Models\AnggotaUkm::with('ukm')
+        ->when($search, function ($query, $search) {
+            $query->where('nama', 'like', "%{$search}%")
+                  ->orWhere('nim', 'like', "%{$search}%")
+                  ->orWhere('prodi', 'like', "%{$search}%")
+                  ->orWhereHas('ukm', function ($q) use ($search) {
+                      $q->where('nama_ukm', 'like', "%{$search}%");
+                  });
+        })
+        ->latest()
+        ->paginate(10);
+
+    // Kirim ke view
+    return view('anggota.index', compact('anggota', 'search'));
+}
+
 
     // 🆕 Tampilkan form tambah anggota
     public function create()

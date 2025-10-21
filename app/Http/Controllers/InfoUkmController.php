@@ -9,12 +9,14 @@ class InfoUkmController extends Controller
 {
     public function index()
     {
+        // Tampilkan daftar info UKM
         $infoUkm = InfoUkm::latest()->paginate(10);
-        return view('info.ukm.form', compact('infoUkm'));
+        return view('info.ukm.index', compact('infoUkm'));
     }
 
     public function create()
     {
+        // Halaman tambah
         return view('info.ukm.form');
     }
 
@@ -27,15 +29,17 @@ class InfoUkmController extends Controller
         ]);
 
         InfoUkm::create($request->all());
-        return redirect()->route('info-ukm.index')->with('success', 'Info UKM berhasil ditambahkan.');
+        return redirect()->route('info.ukm.index')
+                         ->with('success', 'Info UKM berhasil ditambahkan.');
     }
 
-    public function edit(InfoUkm $infoUkm)
+    public function edit(InfoUkm $ukm)
     {
-        return view('info.ukm.form', ['infoUkm' => $infoUkm]);
+        // Gunakan parameter yang sama seperti route resource
+        return view('info.ukm.form', ['infoUkm' => $ukm]);
     }
 
-    public function update(Request $request, InfoUkm $infoUkm)
+    public function update(Request $request, InfoUkm $ukm)
     {
         $request->validate([
             'judul' => 'required|string|max:255',
@@ -43,13 +47,15 @@ class InfoUkmController extends Controller
             'tanggal' => 'nullable|date',
         ]);
 
-        $infoUkm->update($request->all());
-        return redirect()->route('info-ukm.index')->with('success', 'Info UKM berhasil diperbarui.');
+        $ukm->update($request->all());
+        return redirect()->route('info.ukm.index')
+                         ->with('success', 'Info UKM berhasil diperbarui.');
     }
 
-    public function destroy(InfoUkm $infoUkm)
+    public function destroy(InfoUkm $ukm)
     {
-        $infoUkm->delete();
-        return redirect()->route('info-ukm.index')->with('success', 'Info UKM berhasil dihapus.');
+        $ukm->delete();
+        return redirect()->route('info.ukm.index')
+                         ->with('success', 'Info UKM berhasil dihapus.');
     }
 }

@@ -14,6 +14,7 @@ class InfoUkm extends Model
     protected $fillable = [
         'judul',
         'isi',
+        'deskripsi',
         'tanggal'
     ];
 }

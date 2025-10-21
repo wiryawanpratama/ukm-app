@@ -28,7 +28,7 @@ class InfoLombaController extends Controller
         ]);
 
         InfoLomba::create($request->all());
-        return redirect()->route('info-lomba.index')->with('success', 'Info lomba berhasil ditambahkan.');
+        return redirect()->route('info.lomba.index')->with('success', 'Info lomba berhasil ditambahkan.');
     }
 
     public function edit(InfoLomba $infoLomba)

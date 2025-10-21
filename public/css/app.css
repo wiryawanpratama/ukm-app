@@ -1,204 +1,77 @@
-/* =============================
-   SIDEBAR & DASAR RESPONSIF
-============================= */
-.sidebar,
+/* === 🎨 Tema Biru Modern Aplikasi UKM === */
+
+/* Variabel warna utama */
+:root {
+    --bs-primary: #1565c0; /* biru elegan */
+    --bs-secondary: #1e88e5;
+    --bs-dark: #0b3c91;
+    --sidebar-bg: linear-gradient(180deg, #0d47a1, #1565c0);
+}
+
+/* Navbar */
+.navbar {
+    background: linear-gradient(90deg, #0d47a1, #1976d2);
+    color: #fff;
+    border: none;
+}
+.navbar .nav-link {
+    color: #f8f9fa !important;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: #fff !important;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+}
+
+/* Sidebar */
 #sidebar {
-    width: 230px;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
-    transition: all 0.3s ease;
+    background: var(--sidebar-bg);
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+}
+#sidebar .nav-link:hover,
+#sidebar .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
 }
 
-/* konten normal dengan sidebar */
-.main-content-with-sidebar {
-    margin-left: 230px;
-    transition: margin-left 0.3s ease;
+/* Tombol */
+.btn-primary {
+    background: linear-gradient(90deg, #1976d2, #42a5f5);
+    border: none;
+}
+.btn-primary:hover {
+    background: linear-gradient(90deg, #0d47a1, #1976d2);
 }
 
-/* CHANGED: jangan pakai flex di sini agar tidak "meremas" konten lain */
-.main-content-no-sidebar {
-    margin-left: 0;
-    /* display:flex; align-items:center; justify-content:center;  <-- dihapus */
+/* Card */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
-@media (max-width: 991.98px) {
-    .sidebar,
-    #sidebar {
-        left: -230px;
-        transition: left 0.3s ease;
-    }
-    .main-content-with-sidebar {
-        margin-left: 0;
-    }
-}
-
-/* =============================
-   MODE AUTH PAGE (LOGIN/REGISTER)
-   -> aktifkan dengan class "auth-page" di <body>
-============================= */
-
-/* CHANGED: pusatkan konten auth & amankan dari efek layout dashboard */
-body.auth-page .navbar,
-body.auth-page nav,
-body.auth-page .main-content-with-sidebar,
-body.auth-page main {
-    display: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-/* Lebar maksimum konten auth (card login/register) */
-body.auth-page .container,
-body.auth-page .container-fluid,
-body.auth-page .auth-card,
-body.auth-page .auth-container {
-    width: 100%;
-    max-width: 420px;
-}
-
-/* Footer di halaman auth tetap rapi */
-body.auth-page footer {
-    position: relative;
-    width: 100%;
-    text-align: center;
-    color: #6c757d;
-    font-size: 0.85rem;
-    margin-top: 1rem;
-}
-
-/* =============================
-   HERO SECTION - UKM STYLE
-============================= */
-.hero-section {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    background-color: #0d47a1; /* Biru Polman */
-    overflow: hidden;
-}
-
-/* Teks di atas background */
-.hero-section .container {
-    z-index: 2;
-    position: relative;
-}
-
-/* Ilustrasi kanan */
-.parallax-img-wrapper {
-    position: relative;
-    overflow: visible;
-}
-
-.parallax-img {
-    max-width: 90%;
-    transition: transform 0.3s ease-out;
-}
-
-/* Responsif: kecilkan gambar di HP */
-@media (max-width: 768px) {
-    .hero-section {
-        flex-direction: column;
-        text-align: center;
-        padding: 3rem 0;
-    }
-
-    .parallax-img {
-        max-width: 75%;
-        margin-top: 2rem;
-    }
-}
-
-/* =============================
-   FOOTER & MISC
-============================= */
+/* Footer */
 footer {
-    width: 100%;
-    position: relative;
-    bottom: 0;
-    left: 0;
+    background-color: #f8f9fa;
+    color: #6c757d;
 }
 
-@media (max-width: 768px) {
-    footer {
-        font-size: 0.9rem;
-        padding: 1rem 0.5rem;
-    }
+/* Tabel */
+.table-hover tbody tr:hover {
+    background-color: rgba(25, 118, 210, 0.05);
+}
+form.d-flex input.form-control {
+    border: 1.5px solid #1976d2;
+    border-radius: 8px;
+    transition: 0.2s;
 }
 
-.card-header {
-    font-size: 1rem;
-    background: linear-gradient(90deg, #ff7e94, #ff5f6d);
+form.d-flex input.form-control:focus {
+    box-shadow: 0 0 5px rgba(25, 118, 210, 0.4);
+    border-color: #1565c0;
 }
 
-.card-body::-webkit-scrollbar {
-    width: 6px;
-}
-.card-body::-webkit-scrollbar-thumb {
-    background-color: #ccc;
-    border-radius: 10px;
-}
-.card-body::-webkit-scrollbar-thumb:hover {
-    background-color: #aaa;
-}
-
-.badge.bg-danger {
-    background-color: #f44336 !important;
-    border-radius: 20px;
-    padding: 6px 12px;
-    font-weight: 500;
-}
-
-.card-body .border-bottom {
-    border-color: #e4e4e4 !important;
-}
-.card-body .badge {
-    font-size: 0.8rem;
-    padding: 0.4em 0.7em;
-}
-
-/* Layout khusus login/register */
-.auth-wrapper {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.auth-card {
-    width: 100%;
-    max-width: 420px;
-}
-
-/* Dashboard layout */
-#sidebar {
-    width: 230px;
-    background-color: #212529;
-    color: white;
-    min-height: 100vh;
-}
-
-main {
-    margin-left: 230px;
-}
-
-@media (max-width: 768px) {
-    #sidebar {
-        position: fixed;
-        top: 0;
-        left: -230px;
-        transition: left 0.3s ease;
-    }
-
-    #sidebar.active {
-        left: 0;
-    }
-
-    main {
-        margin-left: 0;
-    }
+form.d-flex button.btn {
+    border-radius: 8px;
 }

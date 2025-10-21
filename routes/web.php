@@ -10,6 +10,12 @@ use App\Http\Controllers\InfoUkmController;
 
 // 🔽 Arahkan root URL ke halaman login
 Route::get('/', function () {
+    // Kalau sudah login, langsung ke dashboard
+    if (Auth::check()) {
+        return redirect()->route('dashboard');
+    }
+
+    // Kalau belum login, tampilkan homepage
     return view('home');
 })->name('home');
 
@@ -38,6 +44,10 @@ Route::middleware(['auth'])->group(function () {
     // ✅ Perbaikan total untuk Info Lomba & Info UKM
     Route::prefix('info')->name('info.')->group(function () {
         Route::resource('lomba', InfoLombaController::class);
-        Route::resource('ukm', InfoUkmController::class);
+       Route::resource('ukm', App\Http\Controllers\InfoUkmController::class);
+   
+
     });
+    
 });
+
